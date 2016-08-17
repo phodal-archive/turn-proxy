@@ -23,6 +23,7 @@ if (!query['username']) {
     var turn_username = timestamp + ':' + query['username'];
     var password = hmac(key, turn_username);
 
+    console.log(turn_username, password,time_to_live);
     return resp.send({
         username:turn_username,
         password:password,
@@ -38,6 +39,6 @@ if (!query['username']) {
 
 });
 
-app.listen('3033', function(){
+app.listen('3033','127.0.0.1', function(){
     console.log('server started');
 });
